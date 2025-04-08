@@ -1,8 +1,9 @@
 FROM node:16-slim
 
-# Cài đặt dependencies cho Puppeteer
+# Cài đặt tất cả dependencies cần thiết
 RUN apt-get update && apt-get install -y \
     gconf-service \
+    libgbm1 \  
     libasound2 \
     libatk1.0-0 \
     libatk-bridge2.0-0 \

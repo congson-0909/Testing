@@ -47,8 +47,7 @@ app.post('/screenshot', async (req, res) => {
         '--disable-software-rasterizer',
         '--disable-extensions'
       ],
-      executablePath: process.env.PUPPETEER_EXECUTABLE_PATH || '/usr/bin/chromium',
-      timeout: 30000
+      executablePath: process.env.PUPPETEER_EXECUTABLE_PATH || '/usr/bin/chromium-browser' || '/usr/bin/chromium'
     });
 
     const page = await browser.newPage();

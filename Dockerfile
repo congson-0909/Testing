@@ -2,6 +2,9 @@ FROM node:16-slim
 
 # Cài đặt tất cả dependencies cần thiết
 RUN apt-get update && apt-get install -y \
+    chromium \
+    chromium-sandbox \
+    && rm -rf /var/lib/apt/lists/*\
     gconf-service \
     libgbm1 \  
     libasound2 \
@@ -43,7 +46,7 @@ RUN apt-get update && apt-get install -y \
     xdg-utils \
     wget \
     && rm -rf /var/lib/apt/lists/*
-
+ENV PUPPETEER_EXECUTABLE_PATH=/usr/bin/chromium
 WORKDIR /app
 COPY package*.json ./
 RUN npm install
